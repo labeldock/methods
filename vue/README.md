@@ -33,7 +33,7 @@
 <li v-for="{ value, label } in options" :key="value" :value="value" :label="label"><span>{{ label }}</span><li>
 ```
 
-### Common option components
+### Common option component
 ```html
 <Tab v-model="$data.tab" @input="handleUserTabChange">
   <option v-for="{ value, label } in options" :key="value" :value="value" :label="label"><option>
