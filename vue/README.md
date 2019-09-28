@@ -28,5 +28,23 @@
 }]
 ```
 ```html
-<li v-for="{ value, label } in options" :key="value" :label="label" :value="value"><span>{{ label }}<span><li>
+<li v-for="{ value, label } in options" :key="value" :value="value" :label="label"><span>{{ label }}</span><li>
 ```
+
+### Common option components
+```html
+<Tab v-model="$data.tab" @input="handleUserTabChange">
+  <option v-for="{ value, label } in options" :key="value" :value="value" :label="label"><option>
+</Tab>
+    
+<MySelect v-model="$data.select" @input="handleUserSelectChange">
+  <option v-for="{ value, label } in selectOptions" :key="value" :value="value" :label="label"><option>
+</MySelect>
+```
+
+## Special pattern
+
+### BufferModel
+
+### DynamicRenderedOptionComponent
+
