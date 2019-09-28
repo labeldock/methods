@@ -33,14 +33,14 @@
 <li v-for="{ value, label } in options" :key="value" :value="value" :label="label"><span>{{ label }}</span><li>
 ```
 
-### Common option component
+### Variable rendering optinal component
 ```html
 <Tab v-model="$data.tab" @input="handleUserTabChange">
-  <option v-for="{ value, label } in options" :key="value" :value="value" :label="label"><option>
+  <Item v-for="{ value, label } in options" :key="value" :value="value" :label="label"><Item>
 </Tab>
     
 <MySelect v-model="$data.select" @input="handleUserSelectChange">
-  <option v-for="{ value, label } in selectOptions" :key="value" :value="value" :label="label"><option>
+  <Item v-for="{ value, label } in selectOptions" :key="value" :value="value" :label="label"><Item>
 </MySelect>
 ```
 
