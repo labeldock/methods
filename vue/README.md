@@ -12,9 +12,11 @@
 
 
 ### Model base validation and directive (Bag is vuelidate validation bag)
+
 ``` html
 <CommonTable v-model="$data.foo" v-bag-message.blur="$v.foo"></CommonTable>
 <BagMessage :value="$v.foo"><BagMessage>
+{{ $v.foo.$dirty && $v.foo.$invalid ? 'Invalid' : 'Valid' }}
 ```
 
 ## model and view
