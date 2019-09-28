@@ -36,7 +36,7 @@
 ### Variable rendering optinal component
 ```html
 <Tab v-model="$data.tab" @input="handleUserTabChange">
-  <Item v-for="{ value, label } in options" :key="value" :value="value" :label="label"><Item>
+  <Item v-for="{ value, label } in tabOptions" :key="value" :value="value" :label="label"><Item>
 </Tab>
     
 <MySelect v-model="$data.select" @input="handleUserSelectChange">
