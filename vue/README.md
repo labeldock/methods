@@ -1,5 +1,18 @@
 ## component
 
+### v-model key and update settings
+```js
+{
+   model: {
+    prop : "vModel",
+    event: "update"
+  },
+  props: {
+    "vModel": {}
+  }
+}
+```
+
 ### single model
 ``` html
 <MyInput v-model="model" @input="handleUserInput" @update="handleJustValueChange"></MyInput>
@@ -47,6 +60,35 @@
 ## Special pattern
 
 ### BufferModel
+
+``` js
+{
+  mixins:[vModelUpdateProps()],
+  data: ()=>({ model:'default value' })
+  created (){
+    let binding = false;
+    this.$watch("vModel", (modelValue)=>{
+      if(modelValue === undefined){
+        binding = false;
+      } else {
+        binding = true;
+        this[key] = modelValue;
+      }
+    }, { immediate: true });
+    this.$on("update", (value)=>{
+      !binding && (this[key] = value);
+    });
+  }
+}
+```
+```html
+<!-- two way -->
+<MyInput v-model="$data.value"></MyInput>
+<!-- one way -->
+<MyInput @input="value = $event"></MyInput>
+```
+
+### oldValue patttern
 
 ### DynamicRenderedOptionComponent
 
